@@ -10,9 +10,7 @@ for (int i=0; i<input.length(); i++) {
 }
 for (int i=0; i<names.length; i++) {
   for (int j=i; j>0; j--) {
-    //println(scores[j], scores[j-1]);
     if (scores[j]>scores[j-1]) {
-      //println(scores[i]);
       int aux=scores[j];
       char auxC=names[j];
       scores[j]=scores[j-1];
