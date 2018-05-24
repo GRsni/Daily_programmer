@@ -1,18 +1,15 @@
 JSONObject planesList;
 JSONArray list;
 ArrayList<Plane> planes=new ArrayList<Plane>();
-float testLat=40.6413, testLon=73.7781;
+float testLat=40.6413, testLon=73.7781; //JFK airport
 
 void setup() {
 
   planesList=loadJSONObject("https://"+"opensky-network.org/api/states/all");
-  //planesList=loadJSONObject("planes.txt");
-  //saveJSONObject(planesList, "planes.txt");
   list=planesList.getJSONArray("states");
 
   for (int i=0; i<list.size(); i++) {
     JSONArray split=list.getJSONArray(i);
-    //printArray(split);
     String icao=split.getString(0);
     String call=(split.getString(1)==null?null:split.getString(1));
     String origin=split.getString(2);
@@ -33,9 +30,7 @@ void setup() {
       geo_alt=(split.getFloat(7));
     }
     planes.add(new Plane(lon, lat, geo_alt, icao, origin, call));
-    //println(planes.get(i).pos);
   }
-  //println(getNearestPlane(planes,48.8584,2.2945).pos);
   getNearestPlane(planes, testLat, testLon).out();
 }
 
