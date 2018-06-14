@@ -40,6 +40,6 @@ int checkRule(String[] input) {
     }
   }
   String[] out=dontFollow.toArray(new String[dontFollow.size()]);
-  saveStrings("test.txt", out);
+  saveStrings("data/test.txt", out);
   return counter;
 }
